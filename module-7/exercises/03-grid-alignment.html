@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.wrapper {
+				--rect-width: 100px;
+				/* --quarter-width: calc(var(--rect-width) / 4);
+        --half-width: calc(var(--rect-width) / 2);
+        --three-quarters-width: calc(var(--rect-width) / 4 * 3); */
+
+				--quarter-width: calc(var(--rect-width) * 0.25);
+				--half-width: calc(var(--rect-width) * 0.5);
+				--three-quarters-width: calc(var(--rect-width) * 0.75);
+
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				min-height: 100%;
+				background-color: black;
+				gap: 8px;
+				align-content: center;
+			}
+
+			.box {
+				width: var(--rect-width);
+				height: 80px;
+			}
+			.box:nth-of-type(odd) {
+				justify-self: end;
+			}
+			.box.one {
+				background-color: pink;
+				width: var(--quarter-width);
+			}
+			.box.two {
+				background-color: pink;
+				width: var(--three-quarters-width);
+			}
+			.box.three {
+				background-color: lavender;
+				width: var(--half-width);
+			}
+			.box.four {
+				background-color: lavender;
+				width: var(--half-width);
+			}
+			.box.five {
+				background-color: honeydew;
+				width: var(--three-quarters-width);
+			}
+			.box.six {
+				background-color: honeydew;
+				width: var(--quarter-width);
+			}
+
+			html,
+			body {
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="box one"></div>
+			<div class="box two"></div>
+			<div class="box three"></div>
+			<div class="box four"></div>
+			<div class="box five"></div>
+			<div class="box six"></div>
+		</div>
+	</body>
+</html>

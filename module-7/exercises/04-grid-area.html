@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <!--
+    • The layout should span the entire page.
+    • A header should use a <header> tag, and be 4rem tall.
+    • The sidebar should use a <nav> tag, and be 200px wide.
+    • The main content area should use <main>, and fill the available space.
+    • The ad unit should use an <aside> tag, and be 150px wide.
+    • The footer should use a <footer> tag, and be 5rem tall.
+    -->
+
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-areas: 
+        'header header header'
+        'nav main aside'
+        'footer footer footer';
+        grid-template-columns: 200px 1fr 150px;
+        grid-template-rows: 4rem 1fr 5rem;
+        min-height: 100%;
+
+        gap: 8px;
+        background-color: black;
+      }
+
+      header {
+        grid-area: header;
+        background-color: yellow;
+      }
+      nav {
+        grid-area: nav;
+        background-color: lightgreen;
+      }
+      main {
+        grid-area: main;
+        background-color: lightblue;
+      }
+      aside {
+        grid-area: aside;
+        background-color: lightcoral; 
+      }
+      footer {
+        grid-area: footer;
+        background-color: lightgray;
+      }
+    </style>
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <header>Header</header>
+    <nav class="left-sidebar">Aside</nav>
+    <main>Main</main>
+    <aside class="right-sidebar">Ad</aside>
+    <footer>Footer</footer>
+</div>
+</body>
+</html>
