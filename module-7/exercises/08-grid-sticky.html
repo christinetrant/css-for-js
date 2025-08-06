@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			.grid {
+				display: grid;
+				grid-template-areas:
+					"header header"
+					"sidebar main"
+					"footer footer";
+				grid-template-columns: 14rem 1fr;
+				gap: 16px;
+				max-width: 1200px;
+				margin: 0 auto;
+        isolation: isolate;
+
+        --header-height: 5rem;
+			}
+
+			header {
+				grid-area: header;
+				height: var(--header-height);
+				border-bottom: 3px solid;
+				/* Center the contents */
+				display: grid;
+				place-content: center;
+
+        background-color: white;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+			}
+
+			aside {
+				grid-area: sidebar;
+        position: relative;
+        z-index: 1;
+        border: 2px solid red;
+        /* align-self: start; */
+			}
+
+      .sticky-sidebar {
+        position: sticky;
+        top: var(--header-height);
+      }
+
+			main {
+				grid-area: main;
+				/*
+    Add a bunch of height, to simulate it
+    being full of content
+  */
+				min-height: 180vh;
+				border: 3px solid;
+        z-index: 1;
+			}
+
+			footer {
+				grid-area: footer;
+				height: 5rem;
+				border-top: 3px solid;
+				display: grid;
+				place-content: center;
+
+        background-color: white;
+        z-index: 2;
+			}
+
+			.grid > * {
+				padding: 8px;
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+
+		<div class="grid">
+			<header>
+				<h1>My Website</h1>
+			</header>
+			<aside>
+        <div class="sticky-sidebar">
+          <h2>Chicken Cacciatore</h2>
+          <nav>
+            <ol>
+              <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+                            <li>Introduction</li>
+              <li>Prep</li>
+              <li>Cooking</li>
+              <li>Reviews</li>
+
+            </ol>
+          </nav>
+        </div>
+			</aside>
+			<main>Main Content</main>
+			<footer>Copyright notice</footer>
+		</div>
+	</body>
+</html>
