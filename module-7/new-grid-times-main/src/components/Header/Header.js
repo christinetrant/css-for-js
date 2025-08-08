@@ -31,14 +31,14 @@ const Header = () => {
 					<DesktopItem>
 						<Logo />
 					</DesktopItem>
-					<DesktopItem>
+					<DesktopItemSubscribe>
 						<SubscribeActions>
 							<Button>
 								Subscribe
 							</Button>
 							<LoginLink href={placeholderUrl}>Already a subscriber?</LoginLink>
 						</SubscribeActions>
-					</DesktopItem>
+					</DesktopItemSubscribe>
 				</Row>
 			</SuperHeader>
 			<MainHeader>
@@ -56,17 +56,30 @@ const SuperHeader = styled.div`
 		/* Background takes initial bg */
 		background: revert;
 		color: var(--color-gray-900);
+		padding-bottom: 72px;
 	}
 `;
 
 const Row = styled(MaxWidthWrapper)`
 	display: flex;
 	justify-content: space-between;
+
+	/* Josh Solution */
+	/* @media ${QUERIES.tabletAndUp} {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		justify-content: revert;
+		align-items: revert;
+	} */
 `;
 
 const ActionGroup = styled.div`
 	display: flex;
 	gap: 24px;
+
+	@media ${QUERIES.laptopAndUp} {
+		flex: 1;
+	}
 
 	/*
     FIX: Remove the inline spacing that comes with
@@ -83,7 +96,13 @@ const DesktopItem = styled.div`
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-end;
+	}
+`;
+
+const DesktopItemSubscribe = styled(DesktopItem)`
+	@media ${QUERIES.laptopAndUp} {
+		flex: 1;
 	}
 `;
 
@@ -110,17 +129,24 @@ const MainHeader = styled(MaxWidthWrapper)`
 	justify-content: center;
 	margin-top: 32px;
 	margin-bottom: 48px;
+	@media ${QUERIES.tabletAndUp} {
+		margin-top: 48px;
+		margin-bottom: 32px;
+	}
 	@media ${QUERIES.laptopAndUp} {
 		display: none;
 	}
 `;
 
 const LoginLink = styled.a`
-	font-size: 14px;
+	font-size: 0.875rem;
 	color: var(--color-gray-900);
 	text-decoration: underline;
+	font-style: italic;
+	align-self: end;
 	&:hover {
 		text-decoration: none;
 	}
+
 `;
 export default Header;

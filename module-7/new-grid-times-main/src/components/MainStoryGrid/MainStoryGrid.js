@@ -62,12 +62,15 @@ const Wrapper = styled.div`
 	}
 
 	@media ${QUERIES.laptopAndUp} {
-		grid-template-columns: minmax(477px,2fr) minmax(386px, 1fr) minmax(273px, 1fr);
+		grid-template-columns: 3fr 2fr 1fr;
 		/* grid-template-rows: repeat(3, 1fr); */
 		grid-template-areas:
 			"main-story secondary-stories opinion-stories"
 			"main-story advertisement advertisement";
 		gap: 32px;
+	}
+	@media ${QUERIES.desktopAndUp} {
+		grid-template-columns: minmax(477px,3fr) minmax(386px, 2fr) minmax(273px, 1fr);
 	}
 `;
 
