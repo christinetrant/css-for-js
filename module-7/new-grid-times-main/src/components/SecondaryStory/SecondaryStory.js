@@ -8,7 +8,9 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
 			<Wrapper>
 				<Image alt={image.alt} src={image.src} />
 				<Heading>{title}</Heading>
-				<Abstract>{abstract}</Abstract>
+				<AbstractWrapper>
+					<Abstract>{abstract}</Abstract>
+				</AbstractWrapper>
 			</Wrapper>
 		</a>
 	);
@@ -54,9 +56,11 @@ const Heading = styled.h2`
 	margin-top: -2px;
 `;
 
+const AbstractWrapper = styled.div`
+	grid-area: abstract;
+`;
 const Abstract = styled.p`
 	--line-clamp: 3;
-	grid-area: abstract;
 	font-size: 1rem;
 	white-space: pre-wrap;
 
