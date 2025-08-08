@@ -48,11 +48,22 @@ const SpecialtyStoryGrid = () => {
 };
 
 const Wrapper = styled.div`
+  --column-gap: 32px;
 	display: grid;
 	gap: 48px;
+	@media ${QUERIES.laptopAndUp} {
+		grid-template-columns: 1fr 1fr;
+		gap: var(--column-gap);
+	}
 `;
 
-const MarketsSection = styled.section``;
+const MarketsSection = styled.section`
+@media ${QUERIES.laptopAndUp} {
+	border-right: 1px solid var(--color-gray-300);
+	margin-right: calc(var(--column-gap) / -2);
+	padding-right: calc(var(--column-gap) / 2);
+}
+`;
 
 const MarketCards = styled.div`
 	display: grid;

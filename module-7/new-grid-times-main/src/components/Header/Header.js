@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Menu, Search, User } from "react-feather";
+import { Menu, Search, Underline, User } from "react-feather";
 
 import { QUERIES } from "../../constants";
 
@@ -9,6 +9,7 @@ import Logo from "../Logo";
 import Button from "../Button";
 
 const Header = () => {
+	const placeholderUrl = "https://localhost:3000";
 	return (
 		<header>
 			<SuperHeader>
@@ -33,9 +34,9 @@ const Header = () => {
 					<DesktopItem>
 						<SubscribeActions>
 							<Button>
-								<a href="">Subscribe</a>
+								Subscribe
 							</Button>
-							<a href="">Already a subscriber?</a>
+							<LoginLink href={placeholderUrl}>Already a subscriber?</LoginLink>
 						</SubscribeActions>
 					</DesktopItem>
 				</Row>
@@ -52,7 +53,8 @@ const SuperHeader = styled.div`
 	background: var(--color-gray-900);
 	color: white;
 	@media ${QUERIES.laptopAndUp} {
-		background: white;
+		/* Background takes initial bg */
+		background: revert;
 		color: var(--color-gray-900);
 	}
 `;
@@ -113,4 +115,12 @@ const MainHeader = styled(MaxWidthWrapper)`
 	}
 `;
 
+const LoginLink = styled.a`
+	font-size: 14px;
+	color: var(--color-gray-900);
+	text-decoration: underline;
+	&:hover {
+		text-decoration: none;
+	}
+`;
 export default Header;
