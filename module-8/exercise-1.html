@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!--
+Acceptance criteria:
+
+• Should have a 1000ms delay
+• Should animate over 500ms
+• Should have 32px of spacing from the
+  bottom-right corner
+-->
+		<style>
+			@keyframes slide-in {
+				from {
+					transform: translateY(calc(100% + var(--spacing)));
+				}
+				to {
+					transform: translateY(0%);
+				}
+			}
+			.help-circle {
+				height: 100px;
+				width: 100px;
+				background: deeppink;
+				--spacing: 32px;
+				position: fixed;
+				bottom: var(--spacing);
+				right: var(--spacing);
+				animation: slide-in 500ms backwards;
+				animation-delay: 1000ms;
+			}
+		</style>
+
+		<button class="help-circle">
+			<img alt="" src="/course-materials/help-white.svg" />
+			<span class="visually-hidden"> Access help center </span>
+		</button>
+	</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			*,
+			*:before,
+			*:after {
+				box-sizing: border-box;
+				line-height: 1.5;
+				-webkit-font-smoothing: antialiased;
+				font-family: Wotfard;
+			}
+			html,
+			body {
+				height: 100%;
+			}
+			body {
+				min-height: 100%;
+				padding: 0;
+				margin: 0;
+				background: gray;
+			}
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			figure {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			Acceptance criteria:
+
+			• The # of columns should be variable (at least
+				200px each)
+			• The max width for the grid should be 650px
+			• We're only worrying about desktop viewports
+			• The back of the card should be black with
+				white text.
+			• You can't remove any semantic (non-div) HTML
+				elements. You can add some if it's helpful,
+				though it's possible to solve it without
+				changing the markup.
+		-->
+		<style>
+			.wrapper {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				max-width: 650px;
+				margin: 0 auto;
+				gap: 16px;
+			}
+			.item {
+				position: relative;
+				perspective: 1000px;
+			}
+			a {
+				display: block;
+			}
+			img {
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+			}
+
+			.front,
+			.back {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+				backface-visibility: hidden;
+				will-change: transform;
+			}
+			.back {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: white;
+				color: black;
+				display: flex;
+				flex-direction: column;
+				transform: rotateY(-180deg);
+			}
+
+			.item:hover .front {
+				transform: rotateY(-180deg);
+			}
+			.item:hover .back {
+				transform: rotateY(0deg);
+			}
+			@media (prefers-reduced-motion: no-preference) {
+				.back {
+					background-color: black;
+					color: white;
+				}
+				.front,
+				.back {
+					transition: transform 800ms;
+					transition-delay: 150ms;
+				}
+				.item:hover .front,
+				.item:focus.front,
+				.item:hover .back,
+				.item:focus.back {
+					transition: transform 400ms;
+				}
+			}
+		</style>
+
+		<ul class="wrapper">
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A white building, disappearing into fog. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Nick Wessaert </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A complex mix of support pillars. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Alvaro Pinot </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A white building with staggered balconies. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Grant Lemons </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A unique building with inset curves. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Julien Moreau </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A white building with wavy balconies. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Christian Perner </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A modular building against a blue sky. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Joel Filipe </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A wide-open outdoor concrete area. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Hugo Sousa </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="A concrete building with white protrusions. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Joel Filipe </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+			<li class="item">
+				<a href="/">
+					<figure>
+						<div class="front">
+							<img alt="An igloo-style building. Architecture" src="../images/otter.jpeg" />
+						</div>
+						<figcaption class="back">
+							Photo by
+							<span class="photographer"> Mitchell Luo </span>
+						</figcaption>
+					</figure>
+				</a>
+			</li>
+		</ul>
+	</body>
+</html>

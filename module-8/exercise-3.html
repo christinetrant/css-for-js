@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			html,
+			body {
+				height: 100%;
+			}
+			body {
+				display: grid;
+				place-content: center;
+			}
+			.pushable {
+				background: rgb(163, 0, 54);
+				border: none;
+				border-radius: 12px;
+				padding: 0px;
+				cursor: pointer;
+				max-width: 200px;
+				margin: 32px auto 64px;
+			}
+			.front {
+				display: block;
+				padding: 12px 42px;
+				border-radius: 12px;
+				font-size: 1.25rem;
+				background: rgb(240, 0, 60);
+				color: white;
+				font-weight: var(--font-weight-medium);
+			}
+		</style>
+	</head>
+	<body>
+		<style>
+			.front {
+				transform: translateY(-4px);
+				transition: transform 500ms;
+			}
+			.pushable:hover .front {
+				transform: translateY(-6px);
+				transition: transform 250ms;
+			}
+			.pushable:active .front {
+				transform: translateY(-2px);
+				transition: transform 50ms;
+			}
+		</style>
+		<button class="pushable">
+			<span class="front"> Push me </span>
+		</button>
+	</body>
+</html>

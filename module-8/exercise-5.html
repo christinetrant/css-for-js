@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				height: 100%;
+			}
+			body {
+				background: black;
+				display: grid;
+				place-content: center;
+			}
+			.card {
+				text-decoration: none;
+				color: black;
+			}
+			.front,
+			.back {
+				width: 200px;
+				height: 200px;
+				background: white;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<style>
+			.card-wrapper {
+				perspective: 500px;
+			}
+			.card {
+				position: relative;
+				display: block;
+			}
+			.front,
+			.back {
+				width: 200px;
+				height: 200px;
+				background: white;
+				border-radius: 8px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: transform 400ms;
+				will-change: transform;
+				backface-visibility: hidden;
+				/* Vendor prefix for Safari */
+				-webkit-backface-visibility: hidden;
+			}
+			.back {
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: rotateY(-180deg);
+			}
+			.card:hover .front,
+			.card:focus .front {
+				transform: rotateY(180deg);
+			}
+			.card:hover .back,
+			.card:focus .back {
+				transform: rotateY(0deg);
+			}
+		</style>
+
+		<div class="card-wrapper">
+			<a href="/" class="card">
+				<div class="front">
+					<p>Hello World</p>
+				</div>
+				<div class="back">
+					<p>This is the back</p>
+				</div>
+			</a>
+		</div>
+	</body>
+</html>
